@@ -10,17 +10,17 @@ class App:
 
         load_dotenv(find_dotenv())
 
-        keepass_db_path = getenv("KEEPASS_DB_PATH")
-        keepass_db_password = getenv("KEEPASS_DB_PASSWORD")
+        keepassxc_db_path = getenv("KEEPASSXC_DB_PATH")
+        keepassxc_db_password = getenv("KEEPASSXC_DB_PASSWORD")
 
-        if not keepass_db_path:
-            print("KEEPASS_DB_PATH")
-            keepass_db_path = input("Введите keepass_db_path: ")
-        if not keepass_db_password:
-            print("KEEPASS_DB_PASSWORD")
-            keepass_db_password = getpass.getpass(prompt="Введите keepass_db_password: ")
+        if not keepassxc_db_path:
+            print("KEEPASSXC_DB_PATH")
+            keepassxc_db_path = input("Введите keepass_db_path: ")
+        if not keepassxc_db_password:
+            print("KEEPASSXC_DB_PASSWORD")
+            keepassxc_db_password = getpass.getpass(prompt="Введите keepass_db_password: ")
 
-        self._keepass = PyKeePass(keepass_db_path, keepass_db_password)
+        self._keepass = PyKeePass(keepassxc_db_path, keepassxc_db_password)
         self._entries = self._keepass.entries
 
     def check_urls(self):
